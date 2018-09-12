@@ -1,0 +1,62 @@
+.registration {
+  backface-visibility: hidden;
+  &__title {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.70);
+    text-align: center;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__email {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &__password {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &__username {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &__checkbox {
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 1.8rem;
+      padding: 1rem 0;
+      margin-right: auto;
+    }
+
+    &__button {
+      color: rgba(255, 255, 255, 0.70);
+      width: 100%;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 1rem;
+    }
+  }
+
+  &__action {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.70);
+
+    &__sign-up {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #6acaff;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+  }
+}

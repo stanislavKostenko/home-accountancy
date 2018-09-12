@@ -1,0 +1,44 @@
+.auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  &__card {
+    max-width: 500px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%, 0);
+    -moz-transform: translate3d(-50%,-50%, 0);
+    -ms-transform: translate3d(-50%,-50%, 0);
+    -o-transform: translate3d(-50%,-50%, 0);
+    transform: translate3d(-50%,-50%, 0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    border-radius: 2rem;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.70);
+      padding: 1.5rem 1rem 3.9rem;
+
+      &__logo {
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0.70);
+      }
+
+      &__title {
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin: 0 1rem;
+        color: rgba(255, 255, 255, 0.70);
+      }
+    }
+  }
+
+}

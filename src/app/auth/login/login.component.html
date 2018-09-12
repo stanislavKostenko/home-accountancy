@@ -1,0 +1,30 @@
+<div class="login">
+  <h4 class="login__title">Please Sign In</h4>
+  <div *ngIf="message.text" class="login__alert login__alert_{{ message.type }}">{{ message.text }}</div>
+  <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="login__form__email">
+      <input
+        formControlName="email"
+        [type]="'email'"
+        matInput
+        [placeholder]="form.get('email').invalid && form.get('email').touched
+        ? 'Incorrect email address, please enter correct email ' : 'Email'"
+      >
+    </mat-form-field>
+    <mat-form-field class="login__form__password">
+      <input
+        formControlName="password"
+        [type]="'password'"
+        matInput
+        [placeholder]="form.get('password').invalid && form.get('password').touched ?
+         'Password should be more than 5 symbols' : 'Password'"
+      >
+    </mat-form-field>
+
+    <button class="login__form__button" [disabled]="form.invalid" mat-button color="accent">Sign In</button>
+  </form>
+  <div  class="login__action">
+    <span>Do not have an account yet?</span>
+    <span class="login__action__sign-up" [routerLink]="'/registration'">Sign up now</span>
+  </div>
+</div>
