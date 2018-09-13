@@ -1,24 +1,60 @@
 <div class="registration">
   <h4 class="registration__title">Registration for access</h4>
-  <form action="" class="registration__form">
+  <div
+    *ngIf="message.text && hasError"
+    class="registration__alert registration__alert_{{ message.type }}"
+  >
+    {{ message.text }}
+  </div>
+  <form action="" class="registration__form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field class="registration__form__email">
-      <input matInput placeholder="Email">
+      <input
+        matInput
+        [placeholder]="handleFormValidator('email')
+        ? 'Incorrect email address, please enter correct email' : 'Email'"
+        [type]="'email'"
+        formControlName="email"
+      >
     </mat-form-field>
 
     <mat-form-field class="registration__form__password">
-      <input matInput placeholder="Password">
+      <input
+        matInput
+        [placeholder]="handleFormValidator('password') ?
+         'Password should be more than 5 symbols' : 'Password'"
+        [type]="'password'"
+        formControlName="password"
+      >
     </mat-form-field>
 
     <mat-form-field class="registration__form__username">
-      <input matInput placeholder="Username">
+      <input
+        matInput
+        [placeholder]="handleFormValidator('username') ? 'Username can not be empty' : 'Username'"
+        [type]="'text'"
+        formControlName="username"
+      >
     </mat-form-field>
 
-    <mat-checkbox class="registration__form__checkbox">I agree with the rules</mat-checkbox>
+    <mat-checkbox
+      class="registration__form__checkbox"
+      [formControlName]="'agree'"
+      [required]="true"
+    >
+      I agree with the rules
+    </mat-checkbox>
 
-    <button class="registration__form__button" mat-button color="accent">Sign Up</button>
+    <button
+      class="registration__form__button"
+      [disabled]="form.invalid"
+      mat-button
+      color="accent"
+    >
+      Sign Up
+    </button>
   </form>
   <div  class="registration__action">
     <span>Do you already have an account?</span>
-    <span class="registration__action__sign-up">Sign In</span>
+    <span class="registration__action__sign-up" [routerLink]="'/login'">Sign In</span>
   </div>
 </div>

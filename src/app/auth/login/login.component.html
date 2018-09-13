@@ -7,8 +7,8 @@
         formControlName="email"
         [type]="'email'"
         matInput
-        [placeholder]="form.get('email').invalid && form.get('email').touched
-        ? 'Incorrect email address, please enter correct email ' : 'Email'"
+        [placeholder]="handleFormValidator('email')
+         ? 'Incorrect email address, please enter correct email ' : 'Email'"
       >
     </mat-form-field>
     <mat-form-field class="login__form__password">
@@ -16,7 +16,7 @@
         formControlName="password"
         [type]="'password'"
         matInput
-        [placeholder]="form.get('password').invalid && form.get('password').touched ?
+        [placeholder]="handleFormValidator('password') ?
          'Password should be more than 5 symbols' : 'Password'"
       >
     </mat-form-field>

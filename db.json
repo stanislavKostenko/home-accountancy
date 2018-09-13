@@ -5,6 +5,12 @@
       "email": "admin@gmail.com",
       "password": "adminqwe",
       "name": "Администратор"
+    },
+    {
+      "email": "asd@asdasd.com",
+      "password": "qweqwe",
+      "username": "qwert",
+      "id": 2
     }
   ],
   "bill": {

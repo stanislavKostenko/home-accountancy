@@ -5,19 +5,14 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &__card {
     max-width: 500px;
     width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%,-50%, 0);
-    -moz-transform: translate3d(-50%,-50%, 0);
-    -ms-transform: translate3d(-50%,-50%, 0);
-    -o-transform: translate3d(-50%,-50%, 0);
-    transform: translate3d(-50%,-50%, 0);
     backface-visibility: hidden;
-    -webkit-font-smoothing: subpixel-antialiased;
     border-radius: 2rem;
 
     &__header {

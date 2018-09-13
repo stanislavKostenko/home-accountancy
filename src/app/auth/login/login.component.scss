@@ -1,4 +1,5 @@
 .login {
+  position: relative;
   backface-visibility: hidden;
   &__title {
     font-size: 1.8rem;
@@ -12,6 +13,12 @@
     text-align: center;
     padding: 1rem;
     font-weight: bold;
+
+    &_success {
+      color: #3ecd44;
+      border: 2px solid #3ecd44;
+      border-radius: 1rem;
+    }
 
     &_danger {
       color: #f44336;

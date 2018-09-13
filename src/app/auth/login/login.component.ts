@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../shared/services/users.service';
 import { Message } from '../../shared/interfaces/message';
 import { AuthService } from '../../shared/services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'ha-login',
@@ -15,10 +15,23 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   message: Message = new Message('danger', '');
 
-  constructor(private userService: UsersService, private authService: AuthService, private router: Router) {
+  constructor(
+    private userService: UsersService,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.initFormGroup();
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params['nowCanLogin']) {
+        this.showMessage('success', 'Registration successful');
+      }
+    });
+  }
+
+  private initFormGroup() {
     this.form = new FormGroup({
       'email': new FormControl(
         null,
@@ -35,8 +48,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  private showMessage(type: string = 'danger', text: string) {
+  private showMessage(type: string, text: string) {
     this.message = new Message(type, text);
+  }
+
+  handleFormValidator(formControlName: string): boolean {
+    return this.form.get(formControlName).value !== null && this.form.get(formControlName).invalid;
   }
 
   onSubmit() {

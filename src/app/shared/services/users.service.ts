@@ -21,4 +21,12 @@ export class UsersService {
         });
       }));
   }
+
+  createNewUser(user: UserInterface): Observable<UserInterface> {
+    return this.http.post<any>(`${this.apiUrl}/users`, user)
+      .pipe(map((response) => {
+        return response;
+      } ));
+
+  }
 }
