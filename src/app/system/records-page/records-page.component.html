@@ -1,3 +1,17 @@
-<p>
-  records-page works!
-</p>
+<div class="records-page" [@EnterLeave]>
+  <mat-card class="records-page__header">
+    <div class="records-page__header__title">
+      <h3 class="records-page__header__title__text">Records page</h3>
+    </div>
+    <div class="records-page__header__action">
+      <button mat-fab color="primary">
+        <i class="material-icons">refresh</i>
+      </button>
+    </div>
+  </mat-card>
+
+  <div class="records-page__content">
+    <ha-add-events></ha-add-events>
+    <ha-add-categories [icons]="icons" (addNewCategory)="newCategoryAdded($event)"></ha-add-categories>
+  </div>
+</div>

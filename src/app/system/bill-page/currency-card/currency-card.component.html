@@ -1,0 +1,29 @@
+<mat-card class="bill-page__content__card-currency">
+  <mat-card-title class="bill-page__content__card-currency__title">
+    <h4 class="bill-page__content__card-currency__title__text">Currency</h4>
+  </mat-card-title>
+  <hr />
+  <mat-card-content class="bill-page__content__card-currency__body">
+    <table mat-table [dataSource]="currencyTable" class="mat-elevation-z8 bill-page__content__card-currency__body__table">
+      <ng-container matColumnDef="Position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Currency">
+        <th mat-header-cell *matHeaderCellDef> Currency </th>
+        <td mat-cell *matCellDef="let element"> {{element.ccy}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"> {{convertTo(element.buy).toFixed(3)}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{date | date: 'dd.MM.yyyy'}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,19 @@
+<div class="progress-bar">
+  <div class="progress-bar__empty">
+    <div class="progress-bar__content" [ngClass]="{'enter': animateBar}" [ngStyle]="{backgroundColor: color, maxWidth: maxWidth + '%'}">
+    <span class="progress-bar__content__category" [ngStyle]="{fontFamily: 'Raleway'}">
+      {{category}}
+    </span>
+    </div>
+  </div>
+  <div class="progress-bar__legend">
+    <span class="progress-bar__legend__value">{{value}}</span>
+    <span class="progress-bar__legend__of">of</span>
+    <span class="progress-bar__legend__limit">{{limit}}</span>
+    <span> | </span>
+    <span class="progress-bar__legend__balance">Balance:
+      <span class="progress-bar__legend__balance__value" [ngStyle]="{color: limit - value >= 0 ? '#3ecd44' : '#f44336'}"
+      >{{limit - value}}</span>
+    </span>
+  </div>
+</div>

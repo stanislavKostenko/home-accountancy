@@ -1,0 +1,59 @@
+@import "variables";
+
+.progress-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: $padding-sm;
+
+  &__empty {
+    max-width: 60%;
+    width: 100%;
+    background-color: $white-color;
+    -webkit-border-radius: $border-radius-xs;
+    -moz-border-radius: $border-radius-xs;
+    border-radius: $border-radius-xs;
+    box-shadow: $progress-bar-shadow;
+  }
+
+  &__content {
+    width: 0;
+    transition-delay: 1s;
+    -webkit-transition: width $transition-timing ease-out;
+    -moz-transition: width $transition-timing ease-out;
+    -ms-transition: width $transition-timing ease-out;
+    -o-transition: width $transition-timing ease-out;
+    transition: width $transition-timing ease-out;
+    border-radius: $border-radius-xs;
+    text-align: center;
+
+    &.enter {
+      width: 100%;
+    }
+
+    &__category {
+      font-weight: $font-weight-extra-thin;
+      letter-spacing: $base-letter-spacing;
+    }
+  }
+
+  &__legend {
+    font-family: $base-font-family;
+    font-weight: $font-weight-extra-thin;
+    color: $base-color;
+    letter-spacing: $base-letter-spacing;
+
+    &__value {
+      color: $success-color;
+    }
+
+    &__limit {
+      color: $primary-color;
+    }
+
+    &__of {
+      margin: 0 $margin-xs / 2;
+    }
+  }
+}

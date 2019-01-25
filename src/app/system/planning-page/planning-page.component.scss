@@ -1,0 +1,55 @@
+@import "variables";
+
+.planning-page {
+  padding: $padding-lg;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-sm $base-padding * 2;
+
+    &__title {
+      &__text {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        font-size: $h3-font-size;
+        letter-spacing: $base-letter-spacing;
+        color: $base-color;
+        margin: 0;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: $margin-md * 2;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+
+      &__title {
+        &__text {
+          margin: 0;
+          font-family: $base-font-family;
+          font-weight: $font-weight-extra-thin;
+          color: $base-color;
+          font-size: $h4-font-size;
+          letter-spacing: $base-letter-spacing;
+        }
+      }
+
+      &__balance {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        color: $base-color;
+        font-size: $font-size-md;
+        letter-spacing: $base-letter-spacing;
+
+        &__value {
+          color: $success-color;
+        }
+      }
+    }
+  }
+}

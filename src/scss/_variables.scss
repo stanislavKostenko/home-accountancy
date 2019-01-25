@@ -1,0 +1,60 @@
+//Font-size variables
+$base-font-size: (16 / 16) * 1rem;
+$font-size-sm: (12 / 16) * 1rem;
+$font-size-md: (18 / 16) * 1rem;
+$font-size-lg: (24 / 16) * 1rem;
+$h3-font-size: (32 / 16) * 1rem;
+$h4-font-size: (28 / 16) * 1rem;
+
+//Font-family variables
+$base-font-family: 'Raleway', sans-serif;
+
+//Font-weight variables
+$font-weight-extra-thin: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 600;
+$font-weight-extra-bold: 800;
+
+//Letter-spacing variables
+$base-letter-spacing: 3px;
+
+//Color variables
+$base-color: rgba(255, 255, 255, 0.70);
+$success-color: #3ecd44;
+$danger-color: #f44336;
+$primary-color: #6acaff;
+$overlay-color: rgba(0, 0, 0, 0.8);
+$grey-color: #838383;
+$dark-grey-color: #2a2a2a;
+$white-color: #ffffff;
+
+//Border variables
+$base-border: 1px solid rgba(255, 255, 255, 0.70);
+$success-border: 2px solid #3ecd44;
+$danger-border: 2px solid #f44336;
+$base-border-radius: (16 / 16) * 1rem;
+$border-radius-xs: (5 / 16) * 1rem;
+$border-radius-sm: (10 / 16) * 1rem;
+$border-radius-md: (20 / 16) * 1rem;
+$border-thin: 0.5px solid rgba(255, 255, 255, 0.70);
+
+//Padding variables
+$base-padding: (16 / 16) * 1rem;
+$padding-xs: (10 / 16) * 1rem;
+$padding-sm: (12 / 16) * 1rem;
+$padding-md: (14 / 16) * 1rem;
+$padding-lg: (24 / 16) * 1rem;
+
+
+//Margin variables
+$base-margin: (16 / 16) * 1rem;
+$margin-xs: (10 / 16) * 1rem;
+$margin-sm: (12 / 16) * 1rem;
+$margin-md: (14 / 16) * 1rem;
+
+//Box shadow
+$progress-bar-shadow: inset -2px 1px 6px 0px #5d5959;
+
+//Transition
+$transition-timing: 500ms;
+$transition-timing-sm: 200ms;

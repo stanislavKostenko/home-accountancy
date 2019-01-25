@@ -1,3 +1,7 @@
 <div class="system">
   <ha-side-nav></ha-side-nav>
+  <div class="system__children">
+    <ha-top-bar [currentTime]="currentTime" [user]="user"></ha-top-bar>
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,0 +1,54 @@
+@import 'variables';
+
+.records-page__content__categories {
+  flex: 0 0 49%;
+  height: 100%;
+  &__header {
+    overflow: hidden;
+    &__action {
+      position: relative;
+      &__icon {
+
+      }
+    }
+    &__title {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      padding: $base-padding / 2 $base-padding / 2;
+      &__text {
+        position: absolute;
+        top: 15%;
+        left: 2%;
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        font-size: $h4-font-size;
+        letter-spacing: $base-letter-spacing;
+        color: $base-color;
+        margin: 0;
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - 16%);
+    &__form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__button {
+      width: 100%;
+      margin-top: auto;
+      button {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        color: $base-color;
+        letter-spacing: $base-letter-spacing;
+        width: 100%;
+      }
+    }
+  }
+}

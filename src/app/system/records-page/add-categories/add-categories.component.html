@@ -1,0 +1,63 @@
+<mat-card class="records-page__content__categories">
+  <mat-card-title class="records-page__content__categories__header">
+    <div class="records-page__content__categories__header__title">
+      <h4 *ngIf="!isEditable" class="records-page__content__categories__header__title__text" [@EnterLeave]>Add category</h4>
+      <h4 *ngIf="isEditable" class="records-page__content__categories__header__title__text" [@EnterLeave]>Edit category</h4>
+      <button class="records-page__content__categories__header__action"
+              mat-fab
+              color="primary"
+              (click)="handleEdit()"
+      >
+        <fa-icon *ngIf="!isEditable"
+                 [@RotateIcons]
+                 [icon]="icons.edit"
+                 class="records-page__content__categories__header__action__icon"
+        ></fa-icon>
+        <fa-icon *ngIf="isEditable"
+                 [@RotateIcons]
+                 [icon]="icons.add"
+                 class="records-page__content__categories__header__action__icon"
+        ></fa-icon>
+      </button>
+    </div>
+  </mat-card-title>
+
+  <mat-card-content class="records-page__content__categories__body">
+    <form #categoryForm="ngForm"
+          (ngSubmit)="onSubmit(categoryForm)"
+          class="records-page__content__categories__body__form"
+    >
+      <mat-form-field *ngIf="isEditable">
+        <mat-select placeholder="Choose the category">
+          <mat-option *ngFor="let item of [1,2,3]" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="records-page__content__categories__body__form__field">
+        <input matInput
+               [placeholder]="categoryName.invalid && categoryName.touched ? 'Category name can not be empty' : 'Enter the name'"
+               #categoryName="ngModel"
+               name="categoryName"
+               ngModel
+               required
+        >
+      </mat-form-field>
+
+      <mat-form-field class="records-page__content__categories__body__form__field">
+        <input type="number"
+               matInput
+               [placeholder]="limit.invalid && limit.touched ? 'Limit can not be empty' : 'Enter the limit'"
+               name="limit"
+               #limit="ngModel"
+               [ngModel]="1"
+               required
+               min="1"
+        >
+      </mat-form-field>
+      <div class="records-page__content__categories__body__button">
+        <button type="submit" mat-raised-button color="secondary">Add category</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

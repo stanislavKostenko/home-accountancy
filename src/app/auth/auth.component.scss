@@ -1,10 +1,12 @@
+@import 'variables';
+
 .auth {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $overlay-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,27 +15,34 @@
     max-width: 500px;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 2rem;
+    border-radius: $border-radius-md;
+    -webkit-transition: height 500ms;
+    -moz-transition: height 500ms;
+    -ms-transition: height 500ms;
+    -o-transition: height 500ms;
+    transition: height 500ms;
 
     &__header {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.70);
-      padding: 1.5rem 1rem 3.9rem;
+      border-bottom: $base-border;
+      padding: $base-padding $padding-xs $base-padding * 2;
 
       &__logo {
-        font-size: 3rem;
-        color: rgba(255, 255, 255, 0.70);
+        font-size: $base-font-size * 2;
+        color: $base-color;
       }
 
       &__title {
-        font-size: 3rem;
+        font-size: $base-font-size * 1.6;
         text-transform: uppercase;
-        margin: 0 1rem;
-        color: rgba(255, 255, 255, 0.70);
+        margin: 0 $margin-xs;
+        color: $base-color;
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        letter-spacing: $base-letter-spacing;
       }
     }
   }
-
 }

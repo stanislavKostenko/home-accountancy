@@ -1,28 +1,33 @@
+@import 'variables';
+
 .registration {
   backface-visibility: hidden;
   &__alert {
-    margin: 1rem auto;
+    margin: $margin-xs auto;
     width: 100%;
     text-align: center;
-    padding: 1rem;
+    padding: $padding-xs;
     font-weight: bold;
 
     &_success {
-      color: #3ecd44;
-      border: 2px solid #3ecd44;
-      border-radius: 1rem;
+      color: $success-color;
+      border: $success-border;
+      border-radius: $border-radius-sm;
     }
 
     &_danger {
-      color: #f44336;
-      border: 2px solid #f44336;
-      border-radius: 1rem;
+      color: $danger-color;
+      border: $danger-border;
+      border-radius: $border-radius-sm;
     }
   }
   &__title {
-    font-size: 1.8rem;
-    color: rgba(255, 255, 255, 0.70);
+    font-size: $font-size-md;
+    font-family: $base-font-family;
+    font-weight: $font-weight-extra-thin;
+    color: $base-color;
     text-align: center;
+    letter-spacing: $base-letter-spacing;
   }
   &__form {
     display: flex;
@@ -30,51 +35,48 @@
     align-items: center;
     justify-content: center;
 
-    &__email {
+    &__email, &__password, &__username {
       width: 100%;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    &__password {
-      width: 100%;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    &__username {
-      width: 100%;
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: $base-font-size;
+      font-weight: $font-weight-extra-thin;
+      letter-spacing: $base-letter-spacing;
     }
 
     &__checkbox {
-      color: rgba(255, 255, 255, 0.70);
-      font-size: 1.8rem;
-      padding: 1rem 0;
+      color: $base-color;
+      font-size: $font-size-sm;
+      padding: $padding-xs 0;
       margin-right: auto;
+      font-family: $base-font-family;
+      font-weight: $font-weight-extra-thin;
+      letter-spacing: $base-letter-spacing;
     }
 
     &__button {
-      color: rgba(255, 255, 255, 0.70);
+      color: $base-color;
       width: 100%;
-      font-size: 2rem;
-      font-weight: bold;
-      padding: 1rem;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-extra-thin;
+      padding: $padding-xs;
+      letter-spacing: $base-letter-spacing;
     }
   }
 
   &__action {
-    margin-top: 2rem;
+    margin-top: $base-margin;
     text-align: center;
-    font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.70);
+    font-size: $font-size-sm;
+    color: $base-color;
+    font-family: $base-font-family;
+    font-weight: $font-weight-extra-thin;
+    letter-spacing: $base-letter-spacing;
+    padding-bottom: $base-padding * 2;
 
     &__sign-up {
-      font-weight: bold;
+      font-weight: $font-weight-extra-bold;
       text-transform: uppercase;
-      color: #6acaff;
-      margin-left: 1rem;
+      color: $primary-color;
+      margin-left: $margin-xs;
       cursor: pointer;
     }
   }

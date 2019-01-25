@@ -1,0 +1,44 @@
+@import "variables";
+
+.bill-page {
+  padding: $padding-lg;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-sm $base-padding * 2;
+
+    &__title {
+      &__text {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        font-size: $h3-font-size;
+        letter-spacing: $base-letter-spacing;
+        margin: 0;
+        color: $base-color;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: $margin-md * 2;
+    display: flex;
+    justify-content: space-between;
+
+    &__loader {
+      .mat-progress-spinner {
+        margin: $margin-md * 2 auto;
+      }
+    }
+
+    ha-bill-card {
+      flex: 0 0 33%;
+    }
+
+    ha-currency-card {
+      flex: 0 0 65%;
+    }
+
+  }
+}

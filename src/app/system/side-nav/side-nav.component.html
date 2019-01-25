@@ -1,25 +1,25 @@
-<div class="side-nav">
+<div class="side-nav" [@EnterLeave] [@OpenClose]="currentState">
   <mat-card class="side-nav__card">
-    <mat-card-title class="side-nav__card__header">
-      <h4 class="side-nav__card__header__title">Accountancy</h4>
+    <mat-card-title class="side-nav__card__header" (click)="openSideNav()">
+      <button class="side-nav__card__header__button" [ngClass]="{'hide': isOpened}" mat-button color="accent">
+        <i class="material-icons">menu</i>
+      </button>
+      <h4 class="side-nav__card__header__title" [ngClass]="{'show': isOpened}">Accountancy</h4>
     </mat-card-title>
     <mat-card-content class="side-nav__card__content">
-      <button class="side-nav__card__content__button" mat-button color="accent">
-        <i class="material-icons">receipt</i>
-        <span class="side-nav__card__content__button__title">Bill</span>
-      </button>
-      <button class="side-nav__card__content__button" mat-button color="accent">
-        <i class="material-icons">history</i>
-        <span class="side-nav__card__content__button__title">History</span>
-      </button>
-      <button class="side-nav__card__content__button" mat-button color="accent">
-        <i class="material-icons">archive</i>
-        <span class="side-nav__card__content__button__title">Planning</span>
-      </button>
-      <button class="side-nav__card__content__button" mat-button color="accent">
-        <i class="material-icons">edit</i>
-        <span class="side-nav__card__content__button__title">Records</span>
-      </button>
+      <ng-container *ngFor="let button of buttons">
+        <button [routerLink]="[button.link]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                class="side-nav__card__content__button"
+                mat-button
+                color="accent"
+                [@CenterStart]="hide"
+        >
+          <fa-icon [classes]="'side-nav__card__content__button__icon'" [icon]="button.icon"></fa-icon>
+          <span [@FadeInOut]="hide" class="side-nav__card__content__button__title">{{button.title}}</span>
+        </button>
+      </ng-container>
     </mat-card-content>
   </mat-card>
 </div>

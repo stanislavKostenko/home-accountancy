@@ -1,0 +1,14 @@
+.app-bg {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-image: url('../assets/main-bg.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}

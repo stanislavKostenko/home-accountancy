@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from '../../shared/services/users.service';
-import { UserInterface } from '../../shared/interfaces/user.interface';
-import { Router } from '@angular/router';
-import { Message } from '../../shared/interfaces/message';
-import { of } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserInterface} from '@interfaces/user.interface';
+import {Router} from '@angular/router';
+import {Message} from '@interfaces/message';
+import {of} from 'rxjs';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {ApiService} from '@services/api.service';
 
 @Component({
   selector: 'ha-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
+  animations: [
+    trigger('EnterLeave', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(500)
+      ]),
+      transition(':leave', [
+        animate(500, style({opacity: 1}))
+      ])
+    ])
+  ]
 })
 export class RegistrationComponent implements OnInit {
 
@@ -17,12 +29,13 @@ export class RegistrationComponent implements OnInit {
   message: Message = new Message('danger', '');
   hasError: boolean;
 
-  constructor(private userService: UsersService, private router: Router) {
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   ngOnInit() {
     this.initFormGroup();
   }
+
   private initFormGroup() {
     this.form = new FormGroup({
       'email': new FormControl(
@@ -58,7 +71,7 @@ export class RegistrationComponent implements OnInit {
     const {email, password, username} = this.form.value;
     const user = new UserInterface(email, password, username);
 
-    this.userService.createNewUser(user).subscribe(() => {
+    this.apiService.createNewUser(user).subscribe(() => {
       this.router.navigate(['./login'], {queryParams: {nowCanLogin: true}});
     });
     console.log(this.form);
@@ -70,7 +83,7 @@ export class RegistrationComponent implements OnInit {
 
   forbiddenEmails(control: FormControl): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      this.userService.getUserByEmail(control.value).subscribe((user: any) => {
+      this.apiService.getUserByEmail(control.value).subscribe((user: any) => {
         if (user.length) {
           this.hasError = true;
           resolve({forbiddenEmail: true});

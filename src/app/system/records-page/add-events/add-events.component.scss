@@ -1,0 +1,67 @@
+@import "variables";
+
+.records-page__content__events {
+
+  &__header {
+    &__title {
+      padding: $base-padding / 2 $base-padding / 2;
+      &__text {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        font-size: $h4-font-size;
+        letter-spacing: $base-letter-spacing;
+        color: $base-color;
+        margin: 0;
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - 16%);
+    .mat-form-field {
+      width: 100%;
+    }
+
+    &__radio {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        font-size: $font-size-md;
+        letter-spacing: $base-letter-spacing;
+        color: $base-color;
+        padding: $padding-md 0;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+          padding-bottom: $padding-md;
+          font-family: $base-font-family;
+          font-weight: $font-weight-extra-thin;
+          color: $base-color;
+          letter-spacing: $base-letter-spacing;
+        }
+      }
+    }
+
+    &__field {
+      padding-bottom: $padding-md;
+    }
+
+    &__button {
+      width: 100%;
+      button {
+        font-family: $base-font-family;
+        font-weight: $font-weight-extra-thin;
+        color: $base-color;
+        letter-spacing: $base-letter-spacing;
+        width: 100%;
+      }
+    }
+  }
+}

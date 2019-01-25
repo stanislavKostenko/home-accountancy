@@ -1,0 +1,49 @@
+@import "variables";
+//Forms
+.mat-input-element {
+  caret-color: $primary-color;
+}
+
+.mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: $primary-color;
+  }
+  .mat-form-field-ripple {
+    background-color: $primary-color;
+  }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $font-weight-extra-thin;
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $primary-color;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+//Buttons
+.mat-fab.mat-primary {
+  background-color: $primary-color;
+  width: 40px;
+  height: 40px;
+  > span {
+    padding: 0;
+  }
+}
+
+//Spinner
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $primary-color;
+}

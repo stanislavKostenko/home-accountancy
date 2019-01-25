@@ -1,7 +1,13 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@env/*": ["environments/*"],
+      "@interfaces/*": ["app/shared/interfaces/*"],
+      "@services/*": ["app/shared/services/*"],
+      "@animations/*": ["app/shared/animation/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,

@@ -1,3 +1,26 @@
-<p>
-  planning-page works!
-</p>
+<div class="planning-page" [@EnterLeave]>
+  <mat-card class="planning-page__header">
+    <div class="planning-page__header__title">
+      <h3 class="planning-page__header__title__text">Planning page</h3>
+    </div>
+    <div class="planning-page__header__action">
+      <button mat-fab color="primary">
+        <i class="material-icons">refresh</i>
+      </button>
+    </div>
+  </mat-card>
+
+  <mat-card class="planning-page__content">
+    <mat-card-title class="planning-page__content__header">
+      <div class="planning-page__content__header__title">
+        <h4 class="planning-page__content__header__title__text">Expenses</h4>
+      </div>
+      <div class="planning-page__content__header__balance">
+        <span class="planning-page__content__header__balance__text">General balance: </span>
+        <span class="planning-page__content__header__balance__value">{{78999.21 | currency: '&#8372;'}}</span>
+      </div>
+    </mat-card-title>
+    <hr />
+    <ha-progress-bar [value]="1800" [color]="'#f44336'" [category]="'Products'" [limit]="2000"></ha-progress-bar>
+  </mat-card>
+</div>

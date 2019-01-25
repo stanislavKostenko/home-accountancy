@@ -1,0 +1,36 @@
+<mat-card class="records-page__content__events">
+  <mat-card-title class="records-page__content__events__header">
+    <div class="records-page__content__events__header__title">
+      <h4 class="records-page__content__events__header__title__text">Add Event</h4>
+    </div>
+  </mat-card-title>
+  <mat-card-content class="records-page__content__events__body">
+    <mat-form-field>
+      <mat-select placeholder="Choose the category">
+        <mat-option *ngFor="let item of ['1', '2', '3']" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form class="records-page__content__events__body__radio">
+          <span class="records-page__content__events__body__radio__title">
+            Choose the type
+          </span>
+      <mat-radio-group class="records-page__content__events__body__radio__wrapper">
+        <mat-radio-button class="records-page__content__events__body__radio__wrapper__item" value="gain">Gain</mat-radio-button>
+        <mat-radio-button class="records-page__content__events__body__radio__wrapper__item" value="expense">Expense</mat-radio-button>
+      </mat-radio-group>
+    </form>
+
+    <div class="records-page__content__events__body__field">
+      <mat-form-field>
+        <input matInput placeholder="Enter the sum">
+      </mat-form-field>
+    </div>
+
+    <div class="records-page__content__events__body__button">
+      <button mat-raised-button color="secondary">Add event</button>
+    </div>
+  </mat-card-content>
+</mat-card>

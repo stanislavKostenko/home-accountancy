@@ -1,4 +1,4 @@
-<div class="login">
+<div class="login" [@EnterLeave]>
   <h4 class="login__title">Please Sign In</h4>
   <div *ngIf="message.text" class="login__alert login__alert_{{ message.type }}">{{ message.text }}</div>
   <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">

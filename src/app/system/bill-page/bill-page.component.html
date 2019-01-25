@@ -1,3 +1,33 @@
-<p>
-  bill-page works!
-</p>
+<div class="bill-page" [@EnterLeave]>
+  <mat-card class="bill-page__header">
+    <div class="bill-page__header__title">
+      <h3 class="bill-page__header__title__text">Bill page</h3>
+    </div>
+    <div class="bill-page__header__action">
+      <button mat-fab color="primary" (click)="handleRefresh()">
+        <i [@RotateSingleIcon]="animationState" class="material-icons">refresh</i>
+      </button>
+    </div>
+  </mat-card>
+
+  <div class="bill-page__content__loader" *ngIf="!isLoaded">
+    <mat-progress-spinner
+      class="example-margin"
+      [color]="spinnerColor"
+      [mode]="spinnerMode"
+      [value]="spinnerValue">
+    </mat-progress-spinner>
+  </div>
+
+  <div class="bill-page__content" *ngIf="isLoaded">
+    <ha-bill-card
+      [billTable]="billTable"
+      [icons]="icons"
+      [currencyTable]="currencyTable"></ha-bill-card>
+    <ha-currency-card
+      [date]="date"
+      [currencyTable]="currencyTable"
+      [displayedColumns]="displayedColumns"
+    ></ha-currency-card>
+  </div>
+</div>

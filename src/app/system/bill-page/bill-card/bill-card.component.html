@@ -1,0 +1,27 @@
+<mat-card class="bill-page__content__card-bill">
+  <mat-card-title class="bill-page__content__card-bill__title">
+    <h4 class="bill-page__content__card-bill__title__text">Bill</h4>
+  </mat-card-title>
+  <hr />
+  <mat-card-content class="bill-page__content__card-bill__body">
+    <div class="bill-page__content__card-bill__body__list">
+      <div class="bill-page__content__card-bill__body__list-item">
+        <fa-icon [class]="'bill-page__content__card-bill__body__list-item__symbol'"
+                 [icon]="billTable.type === 'UAH' ? icons.UAH : ''"></fa-icon>
+        <span class="bill-page__content__card-bill__body__list-item__value">{{billTable.value}}</span>
+      </div>
+
+      <div class="bill-page__content__card-bill__body__list-item">
+        <fa-icon [class]="'bill-page__content__card-bill__body__list-item__symbol'"
+                 [icon]="icons.USD"></fa-icon>
+        <span class="bill-page__content__card-bill__body__list-item__value">{{convertTo(currencyUSD).toFixed(2)}}</span>
+      </div>
+
+      <div class="bill-page__content__card-bill__body__list-item">
+        <fa-icon [class]="'bill-page__content__card-bill__body__list-item__symbol'"
+                 [icon]="icons.EU"></fa-icon>
+        <span class="bill-page__content__card-bill__body__list-item__value">{{convertTo(currencyEUR).toFixed(2)}}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

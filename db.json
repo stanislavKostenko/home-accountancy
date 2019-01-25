@@ -4,34 +4,33 @@
       "id": 1,
       "email": "admin@gmail.com",
       "password": "adminqwe",
-      "name": "Администратор"
-    },
-    {
-      "email": "asd@asdasd.com",
-      "password": "qweqwe",
-      "username": "qwert",
-      "id": 2
+      "name": "Administrator"
     }
   ],
   "bill": {
     "value": 100000,
-    "currency": "RUB"
+    "type": "UAH"
   },
   "categories": [
     {
-      "name": "Дом",
-      "capacity": 15000,
+      "categoryName": "Дом",
+      "limit": 15000,
       "id": 1
     },
     {
-      "name": "Еда",
-      "capacity": 10000,
+      "categoryName": "Еда",
+      "limit": 10000,
       "id": 2
     },
     {
       "id": 3,
-      "name": "Машина",
-      "capacity": 7000
+      "categoryName": "Машина",
+      "limit": 7000
+    },
+    {
+      "categoryName": "new",
+      "limit": 22222,
+      "id": 4
     }
   ],
   "events": [

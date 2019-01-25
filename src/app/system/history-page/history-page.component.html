@@ -1,3 +1,78 @@
-<p>
-  history-page works!
-</p>
+<div class="history-page" [@EnterLeave]>
+  <mat-card class="history-page__header">
+    <div class="history-page__header__title">
+      <h3 class="history-page__header__title__text">History page</h3>
+    </div>
+    <div class="history-page__header__action">
+      <button mat-fab color="primary">
+        <i class="material-icons">refresh</i>
+      </button>
+    </div>
+  </mat-card>
+
+  <mat-card class="history-page__chart">
+    <ngx-charts-pie-grid
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="single"
+      [animations]="true"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+  </mat-card>
+
+  <mat-card class="history-page__events">
+    <mat-card-title class="history-page__events__header">
+      <div class="history-page__events__header-wrapper">
+        <h4 class="history-page__events__header__title">Events List</h4>
+        <div class="history-page__events__header__search">
+          <form class="history-page__events__header__search__form">
+            <mat-form-field class="history-page__events__header__search__form__field">
+              <input matInput placeholder="Search">
+            </mat-form-field>
+          </form>
+          <mat-form-field>
+            <mat-select placeholder="Search parameters">
+              <mat-option *ngFor="let food of ['1', '2', '3']" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-title>
+    <mat-card-content class="history-page__events__content">
+      <table mat-table [dataSource]="historyTable" class="mat-elevation-z8 history-page__events__content__table">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+        </ng-container>
+        <ng-container matColumnDef="equal">
+          <th mat-header-cell *matHeaderCellDef> Equal </th>
+          <td mat-cell *matCellDef="let element"> {{element.equal}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element">
+            <span [ngStyle]="{backgroundColor: element.type === 'Gain' ? '#277027' : '#a43d3d', padding: '5px', borderRadius: '5px'}">{{element.type}}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td class="history-page__events__content__table__action" mat-cell *matCellDef="let element">
+            <button mat-stroked-button color="secondary">{{element.action}}</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
