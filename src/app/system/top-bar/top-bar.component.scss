@@ -18,6 +18,7 @@
     height: 70px;
     &__time {
       &__content {
+        font-family: $titillium-font-family;
         font-weight: $font-weight-extra-thin;
         font-size: $font-size-lg;
         letter-spacing: $base-letter-spacing;

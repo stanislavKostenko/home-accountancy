@@ -24,8 +24,9 @@ export namespace Animations {
   ]);
 
   export const rotateSingleIcon = trigger('RotateSingleIcon', [
-    state('initial', style({transform: 'rotateZ(720deg)'})),
-    transition('* <=> *', animate('300ms 100ms ease-in')),
+    state('initial', style({transform: 'rotateZ(0)'})),
+    transition('* <=> *', animate('300ms 100ms ease-in',
+      style({transform: 'rotateZ(720deg)'}))),
   ]);
   export const enterLeave = trigger('EnterLeave', [
     transition(':enter', [
@@ -73,7 +74,7 @@ export namespace Animations {
     transition(':leave', [
       animate(500, style({opacity: 1}))
     ])
-  ])
+  ]);
 
   export const openClose = trigger('OpenClose', [
       state('initial', style({width: '80px'})),

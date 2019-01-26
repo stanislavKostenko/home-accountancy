@@ -8,6 +8,7 @@ $h4-font-size: (28 / 16) * 1rem;
 
 //Font-family variables
 $base-font-family: 'Raleway', sans-serif;
+$titillium-font-family: 'Titillium Web', sans-serif;
 
 //Font-weight variables
 $font-weight-extra-thin: 100;
@@ -19,7 +20,7 @@ $font-weight-extra-bold: 800;
 $base-letter-spacing: 3px;
 
 //Color variables
-$base-color: rgba(255, 255, 255, 0.70);
+$base-color: rgb(255, 255, 255);
 $success-color: #3ecd44;
 $danger-color: #f44336;
 $primary-color: #6acaff;

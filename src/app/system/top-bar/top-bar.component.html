@@ -1,7 +1,7 @@
 <div class="top-bar" [@EnterLeave]="currentTime">
   <mat-card class="top-bar__card">
     <div class="top-bar__card__time">
-      <span class="top-bar__card__time__content">{{currentTime | date: 'medium'}}</span>
+      <span class="top-bar__card__time__content">{{currentTime | date: 'hh:mm:ss aaa, dd MM yyyy'}}</span>
     </div>
     <div class="top-bar__card__user">
       <button class="top-bar__card__user__name" mat-button [matMenuTriggerFor]="menu">Hello, {{user.name}}</button>
