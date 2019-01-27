@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {FormControl, FormGroup, Validators}   from '@angular/forms';
+import {ActivatedRoute, Params, Router}       from '@angular/router';
 
-import {Message} from '@interfaces/message';
+import {Message}     from '@interfaces/message';
 import {AuthService} from '@services/auth.service';
-import {ApiService} from '@services/api.service';
+import {ApiService}  from '@services/api.service';
+import {Animations}  from '@animations/animation';
 
 @Component({
   selector: 'ha-login',
@@ -13,15 +13,7 @@ import {ApiService} from '@services/api.service';
   styleUrls: ['./login.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [
-    trigger('EnterLeave', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(500)
-      ]),
-      transition(':leave', [
-        animate(500, style({opacity: 1}))
-      ])
-    ])
+    Animations.enterLeaveOpacity
   ]
 })
 export class LoginComponent implements OnInit {

@@ -7,9 +7,6 @@
     overflow: hidden;
     &__action {
       position: relative;
-      &__icon {
-
-      }
     }
     &__title {
       display: flex;
@@ -28,6 +25,28 @@
         color: $base-color;
         margin: 0;
       }
+    }
+  }
+
+  &__alert {
+    font-family: $base-font-family;
+    letter-spacing: $base-letter-spacing;
+    margin: $margin-xs auto;
+    width: 100%;
+    text-align: center;
+    padding: $padding-xs;
+    font-weight: $font-weight-extra-thin;
+
+    &_success {
+      color: $success-color;
+      border: $success-border;
+      border-radius: $border-radius-sm;
+    }
+
+    &_danger {
+      color: $danger-color;
+      border: $danger-border;
+      border-radius: $border-radius-sm;
     }
   }
 

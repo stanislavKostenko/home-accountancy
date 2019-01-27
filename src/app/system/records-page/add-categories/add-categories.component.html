@@ -1,8 +1,12 @@
 <mat-card class="records-page__content__categories">
   <mat-card-title class="records-page__content__categories__header">
     <div class="records-page__content__categories__header__title">
-      <h4 *ngIf="!isEditable" class="records-page__content__categories__header__title__text" [@EnterLeave]>Add category</h4>
-      <h4 *ngIf="isEditable" class="records-page__content__categories__header__title__text" [@EnterLeave]>Edit category</h4>
+      <h4 *ngIf="!isEditable"
+          class="records-page__content__categories__header__title__text"
+          [@EnterLeave]>Add category</h4>
+      <h4 *ngIf="isEditable"
+          class="records-page__content__categories__header__title__text"
+          [@EnterLeave]>Edit category</h4>
       <button class="records-page__content__categories__header__action"
               mat-fab
               color="primary"
@@ -21,16 +25,25 @@
       </button>
     </div>
   </mat-card-title>
-
+  <div
+    *ngIf="message.text"
+    class="records-page__content__categories__alert records-page__content__categories__alert_{{ message.type }}"
+  >
+    {{ message.text }}
+  </div>
   <mat-card-content class="records-page__content__categories__body">
     <form #categoryForm="ngForm"
           (ngSubmit)="onSubmit(categoryForm)"
           class="records-page__content__categories__body__form"
     >
-      <mat-form-field *ngIf="isEditable">
-        <mat-select placeholder="Choose the category">
-          <mat-option *ngFor="let item of [1,2,3]" [value]="item">
-            {{item}}
+      <mat-form-field *ngIf="isEditable && categories.length">
+        <mat-select placeholder="Choose the category"
+                    [(ngModel)]="currentCategoryId"
+                    [ngModelOptions]="{standalone: true}"
+                    (selectionChange)="handleChangeCategory()"
+        >
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.categoryName}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -39,7 +52,7 @@
                [placeholder]="categoryName.invalid && categoryName.touched ? 'Category name can not be empty' : 'Enter the name'"
                #categoryName="ngModel"
                name="categoryName"
-               ngModel
+               [ngModel]="isEditable ? currentCategory.categoryName : ''"
                required
         >
       </mat-form-field>
@@ -50,13 +63,17 @@
                [placeholder]="limit.invalid && limit.touched ? 'Limit can not be empty' : 'Enter the limit'"
                name="limit"
                #limit="ngModel"
-               [ngModel]="1"
+               [ngModel]="isEditable ? currentCategory.limit : 1"
                required
                min="1"
         >
       </mat-form-field>
       <div class="records-page__content__categories__body__button">
-        <button type="submit" mat-raised-button color="secondary">Add category</button>
+        <button type="submit"
+                mat-raised-button
+                color="secondary"
+                [disabled]="categoryForm.invalid"
+        >{{isEditable ? 'Edit category' : 'Add category'}}</button>
       </div>
     </form>
   </mat-card-content>

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserInterface} from '@interfaces/user.interface';
+import {UserInterface}                from '@interfaces/user.interface';
 
 @Component({
   selector: 'ha-system',
@@ -7,9 +7,9 @@ import {UserInterface} from '@interfaces/user.interface';
   styleUrls: ['./system.component.scss']
 })
 export class SystemComponent implements OnInit, OnDestroy {
-  currentTime: Date;
-  timer: number;
-  user: UserInterface;
+  public currentTime: Date;
+  public timer: number;
+  public user: UserInterface;
 
   constructor() {
     this.timer = setInterval(() => {

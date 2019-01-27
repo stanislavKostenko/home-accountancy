@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Animations} from '@animations/animation';
-import {environment} from '@env/environment';
+import {Animations}                           from '@animations/animation';
+import {environment}                          from '@env/environment';
 
 @Component({
   selector: 'ha-side-nav',

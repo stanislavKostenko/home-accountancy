@@ -28,9 +28,19 @@
       "limit": 7000
     },
     {
-      "categoryName": "new",
+      "categoryName": "new2122",
       "limit": 22222,
       "id": 4
+    },
+    {
+      "categoryName": "new Category",
+      "limit": 1222222,
+      "id": 5
+    },
+    {
+      "categoryName": "kostenkoasdss22222",
+      "limit": 234562222,
+      "id": 6
     }
   ],
   "events": [

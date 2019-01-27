@@ -1,9 +1,9 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {faPowerOff, faUserCog} from '@fortawesome/free-solid-svg-icons';
-import {UserInterface} from '@interfaces/user.interface';
-import {AuthService} from '@services/auth.service';
-import {Animations} from '@animations/animation';
+import {Router}                                      from '@angular/router';
+import {faPowerOff, faUserCog}                       from '@fortawesome/free-solid-svg-icons';
+import {UserInterface}                               from '@interfaces/user.interface';
+import {AuthService}                                 from '@services/auth.service';
+import {Animations}                                  from '@animations/animation';
 
 @Component({
   selector: 'ha-top-bar',

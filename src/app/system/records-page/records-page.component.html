@@ -9,9 +9,20 @@
       </button>
     </div>
   </mat-card>
-
-  <div class="records-page__content">
+  <div class="bill-page__content__loader" *ngIf="!isLoaded">
+    <mat-progress-spinner
+      class="example-margin"
+      [color]="spinnerColor"
+      [mode]="spinnerMode"
+      [value]="spinnerValue">
+    </mat-progress-spinner>
+  </div>
+  <div class="records-page__content" *ngIf="isLoaded">
     <ha-add-events></ha-add-events>
-    <ha-add-categories [icons]="icons" (addNewCategory)="newCategoryAdded($event)"></ha-add-categories>
+    <ha-add-categories [categories]="categories"
+                       [icons]="icons"
+                       (addNewCategory)="newCategoryAdded($event)"
+                       (editCategory)="editCategory($event)"
+    ></ha-add-categories>
   </div>
 </div>

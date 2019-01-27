@@ -1,11 +1,12 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {BillInterface} from '@interfaces/bill.interface';
-import {environment} from '@env/environment';
-import {map} from 'rxjs/operators';
+import {Injectable}        from '@angular/core';
+import {HttpClient}        from '@angular/common/http';
+import {Observable}        from 'rxjs';
+import {map}               from 'rxjs/operators';
+
+import {environment}       from '@env/environment';
+import {BillInterface}     from '@interfaces/bill.interface';
 import {CurrencyInterface} from '@interfaces/currency.interface';
-import {UserInterface} from '@interfaces/user.interface';
+import {UserInterface}     from '@interfaces/user.interface';
 import {CategoryInterface} from '@interfaces/category.interface';
 
 @Injectable({
@@ -38,6 +39,16 @@ export class ApiService {
 
   addCategory(category: CategoryInterface): Observable<CategoryInterface> {
     return this.http.post<CategoryInterface>(environment.mainApiUrl + '/categories', category)
+      .pipe(map((data: CategoryInterface) => data));
+  }
+
+  getCategories(): Observable<CategoryInterface[]> {
+    return this.http.get<CategoryInterface[]>(environment.mainApiUrl + '/categories')
+      .pipe(map((data: CategoryInterface[]) => data));
+  }
+
+  updateCategory(category: CategoryInterface): Observable<CategoryInterface> {
+    return this.http.put<CategoryInterface>(environment.mainApiUrl + '/categories/' + category.id , category)
       .pipe(map((data: CategoryInterface) => data));
   }
 }

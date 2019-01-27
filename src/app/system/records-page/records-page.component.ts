@@ -1,36 +1,64 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {takeUntil}                                       from 'rxjs/operators';
+import {Subject, Subscription}                           from 'rxjs';
+
 import {CategoryInterface} from '@interfaces/category.interface';
-import {environment} from '@env/environment';
+import {environment}       from '@env/environment';
+import {Animations}        from '@animations/animation';
+import {ApiService}        from '@services/api.service';
 
 @Component({
   selector: 'ha-records-page',
   templateUrl: './records-page.component.html',
   styleUrls: ['./records-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('EnterLeave', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(500)
-      ]),
-      transition(':leave', [
-        animate(500, style({opacity: 1}))
-      ])
-    ])
-  ]
+  animations: [ Animations.enterLeaveOpacity ]
 })
-export class RecordsPageComponent implements OnInit {
+export class RecordsPageComponent implements OnInit, OnDestroy {
   public icons: any = environment.icons;
   public isEditable: boolean = false;
-  constructor() {
+  public isLoaded: boolean = false;
+  public categories: CategoryInterface[] = [];
+  public subscription: Subscription[] = [];
+  public spinnerColor: string = 'primary';
+  public spinnerMode: string = 'indeterminate';
+  public spinnerValue: number = 80;
+
+
+  private ngUnsubscribe: Subject<boolean> = new Subject();
+  constructor(private apiService: ApiService) {
   }
 
   ngOnInit() {
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.subscription.push(
+      this.apiService.getCategories()
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((data: CategoryInterface[]) => {
+          this.categories = data;
+          this.isLoaded = true;
+        })
+    );
   }
 
   newCategoryAdded(category: CategoryInterface) {
-    // new array
+    this.categories.push(category);
   }
 
+  editCategory(category: CategoryInterface) {
+    const categoryIndex = this.categories
+      .findIndex((item: CategoryInterface) => item.id === category.id);
+    this.categories[categoryIndex] = category;
+    console.log(this.categories);
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+
+    this.subscription.map((item: Subscription) => item.unsubscribe());
+  }
 }
